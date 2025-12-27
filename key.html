@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key下载</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        /* 背景装饰 */
+        .bg-bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .bg-bubbles li {
+            position: absolute;
+            list-style: none;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.6);
+            bottom: -160px;
+            animation: square 25s infinite;
+            transition-timing-function: linear;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .bg-bubbles li:nth-child(1) {
+            left: 10%;
+        }
+        
+        .bg-bubbles li:nth-child(2) {
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 2s;
+            animation-duration: 17s;
+        }
+        
+        .bg-bubbles li:nth-child(3) {
+            left: 25%;
+            animation-delay: 4s;
+        }
+        
+        .bg-bubbles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 22s;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .bg-bubbles li:nth-child(5) {
+            left: 70%;
+        }
+        
+        .bg-bubbles li:nth-child(6) {
+            left: 80%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 3s;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .bg-bubbles li:nth-child(7) {
+            left: 32%;
+            width: 160px;
+            height: 160px;
+            animation-delay: 7s;
+        }
+        
+        .bg-bubbles li:nth-child(8) {
+            left: 55%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 15s;
+            animation-duration: 40s;
+        }
+        
+        .bg-bubbles li:nth-child(9) {
+            left: 25%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 2s;
+            animation-duration: 40s;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .bg-bubbles li:nth-child(10) {
+            left: 90%;
+            width: 160px;
+            height: 160px;
+            animation-delay: 11s;
+        }
+        
+        @keyframes square {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 50%;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 10%;
+            }
+        }
+        
+        /* 白色磨砂玻璃容器 */
+        .glass-container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), 
+                        0 8px 30px rgba(0, 0, 0, 0.05),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            z-index: 1;
+            padding: 40px;
+        }
+        
+        /* 标题区域 */
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #4a6fa5, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        /* 公告区域 */
+        .announcement {
+            background: linear-gradient(135deg, rgba(245, 247, 250, 0.9) 0%, rgba(230, 233, 240, 0.9) 100%);
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4a6fa5;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .announcement h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .announcement h3 i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+            color: #4a6fa5;
+        }
+        
+        .announcement p {
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 400;
+        }
+        
+        /* 密码区域 */
+        .password-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 250, 0.9) 100%);
+            border-radius: 18px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .password-input-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .password-input-container input {
+            flex: 1;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(74, 111, 165, 0.2);
+            border-radius: 12px;
+            font-size: 1.2rem;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .password-input-container input:focus {
+            outline: none;
+            border-color: #4a6fa5;
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1), 0 5px 20px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+        
+        .password-input-container input::placeholder {
+            color: #999;
+        }
+        
+        .verify-btn {
+            background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%);
+            color: white;
+            border: none;
+            padding: 0 35px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(74, 111, 165, 0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .verify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(74, 111, 165, 0.3);
+        }
+        
+        .verify-btn:active {
+            transform: translateY(0);
+        }
+        
+        .message {
+            text-align: center;
+            font-weight: 600;
+            min-height: 30px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+        }
+        
+        .success-message {
+            color: #27ae60;
+        }
+        
+        /* 下载区域 */
+        .download-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 250, 0.9) 100%);
+            border-radius: 18px;
+            padding: 35px;
+            margin-bottom: 30px;
+            display: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .download-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .download-header h2 {
+            font-size: 2rem;
+            color: #27ae60;
+            margin-left: 15px;
+        }
+        
+        .download-header i {
+            font-size: 2.5rem;
+            color: #27ae60;
+        }
+        
+        .file-info {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .file-info p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            color: #444;
+        }
+        
+        .file-info strong {
+            min-width: 100px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.2);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.3);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* QQ群区域 */
+        .qq-section {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .qq-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #12B5FF 0%, #0078D7 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(18, 181, 255, 0.2);
+        }
+        
+        .qq-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(18, 181, 255, 0.3);
+        }
+        
+        /* 音乐播放器 */
+        .music-player {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+        
+        .music-control {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a6fa5;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .music-control:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .music-info {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .music-player:hover .music-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 音乐选择器 */
+        .music-selector {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: none;
+            max-width: 300px;
+        }
+        
+        .music-selector h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .music-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .music-item {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .music-item:hover {
+            background: rgba(74, 111, 165, 0.1);
+        }
+        
+        .music-item.active {
+            background: rgba(74, 111, 165, 0.2);
+            color: #4a6fa5;
+            font-weight: 600;
+        }
+        
+        .music-item i {
+            font-size: 1rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .password-input-container {
+                flex-direction: column;
+            }
+            
+            .verify-btn {
+                padding: 18px;
+                width: 100%;
+            }
+            
+            .download-btn, .qq-btn {
+                padding: 18px;
+            }
+            
+            .music-player {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .music-control {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .music-selector {
+                bottom: 80px;
+                right: 15px;
+                max-width: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .announcement, .password-section, .download-section {
+                padding: 20px;
+            }
+            
+            .file-info p {
+                flex-direction: column;
+            }
+            
+            .file-info strong {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景动画 -->
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+    <!-- 主容器 -->
+    <div class="glass-container">
+        <!-- 标题 -->
+        <div class="header">
+            <h1><i class="fas fa-key"></i> key下载</h1>
+            <p>输入密码下载文件</p>
+        </div>
+        
+        <!-- 公告 -->
+        <div class="announcement">
+            <h3><i class="fas fa-bullhorn"></i> 重要公告</h3>
+            <p>欢迎使用key下载服务！本网站提供keybox.xml文件下载，下载前需要进行密码验证。请确保您已获得有效的下载密码。文件仅供学习研究使用，请遵守相关法律法规，勿用于非法用途。</p>
+        </div>
+        
+        <!-- 密码验证 -->
+        <div class="password-section">
+            <div class="password-input-container">
+                <input type="password" id="passwordInput" placeholder="请输入下载密码" autocomplete="off">
+                <button class="verify-btn" id="verifyBtn">
+                    <i class="fas fa-lock-open"></i> 验证密码
+                </button>
+            </div>
+            <div class="message">
+                <div id="errorMessage" class="error-message"></div>
+                <div id="successMessage" class="success-message"></div>
+            </div>
+        </div>
+        
+        <!-- 下载区域（默认隐藏） -->
+        <div class="download-section" id="downloadSection">
+            <div class="download-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>密码验证成功！</h2>
+            </div>
+            
+            <div class="file-info">
+                <p><strong>文件名：</strong> keybox.xml</p>
+                <p><strong>文件大小：</strong> 约 2.1 MB</p>
+                <p><strong>文件类型：</strong> XML 配置文件</p>
+                <p><strong>下载说明：</strong> 点击下方按钮开始下载</p>
+            </div>
+            
+            <a href="#" id="downloadLink" class="download-btn">
+                <i class="fas fa-download"></i>
+                <span>立即下载 keybox.xml</span>
+            </a>
+        </div>
+        
+        <!-- QQ群 -->
+        <div class="qq-section">
+            <p>有问题？加入我们的QQ群交流</p>
+            <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=EDSocZcMvswOHmFQuNPq3Q1nH9SSpPaJKeEmbXRW0F2Tza6m%2F4W6E6NrrWto9qdR&busi_data=eyJncm91cENvZGUiOiIxMDEyODM5NzY2IiwidG9rZW4iOiJKcmJHajRWcmx2bm1IL1hpTmtzbkdWM2h0enYvMUxrWFhSRzd1eE5qWEH5a01WTXgzR2crWnRPRi9tSUlJdzUvIiwidWluIjoiMzIwNzQ4NTU4MSJ9&data=ZANsvtBELLk9tEFaPCxMd9bJR-HTM-QHt6bd9mFOwYc4-PK6rTTkbjV_xA4IRXUGXUzyi7Ezz7cR1MwLcztmrg&svctype=4&tempid=h5_group_info" 
+               target="_blank" class="qq-btn">
+                <i class="fab fa-qq"></i>
+                <span>加入QQ群 (1012839766)</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- 音乐播放器 -->
+    <div class="music-player">
+        <div class="music-info">
+            正在播放：<span id="currentMusic">2025热门音乐</span>
+        </div>
+        <button class="music-control" id="musicControl">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+    
+    <!-- 音乐选择器 -->
+    <div class="music-selector" id="musicSelector">
+        <h3><i class="fas fa-headphones"></i> 选择音乐</h3>
+        <div class="music-list" id="musicList"></div>
+    </div>
+    
+    <script>
+        // 密码配置
+        const validPasswords = ["shenbaoNB", "key2024", "download123", "xmlpass"];
+        
+        // 2025热门音乐列表 (使用可靠的公共领域和免版税音乐)
+        const musicList = [
+            { 
+                name: "Midnight Dreams - 2025流行", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_1609e4e6e3.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3"
+            },
+            { 
+                name: "Electric Pulse - 2025电子", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_5dc25290b8.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-driving-ambition-32.mp3"
+            },
+            { 
+                name: "Starry Night - 2025轻音乐", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_8c7f1c2ff1.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-meditation-1324.mp3"
+            },
+            { 
+                name: "Urban Flow - 2025城市节奏", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_8b4f8bdd60.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-summer-breeze-1328.mp3"
+            },
+            { 
+                name: "Neon Lights - 2025电子舞曲", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_74f6b36267.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3"
+            },
+            { 
+                name: "Horizon - 2025氛围音乐", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_6c0b3b0e20.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-dreamy-ambient-1123.mp3"
+            },
+            { 
+                name: "Retro Wave - 2025复古", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_f0f1a1dc77.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-retro-game-emergency-alarm-1000.mp3"
+            },
+            { 
+                name: "Sunset Drive - 2025轻快", 
+                url: "https://cdn.pixabay.com/audio/2023/03/27/audio_b27d3c6d53.mp3",
+                backupUrl: "https://assets.mixkit.co/music/preview/mixkit-summer-breeze-1328.mp3"
+            }
+        ];
+        
+        // 全局音频对象
+        let audio = null;
+        let currentMusicIndex = Math.floor(Math.random() * musicList.length);
+        let isPlaying = false;
+        let userInteracted = false;
+        
+        // 初始化音频系统
+        function initializeAudio() {
+            // 创建音频对象
+            audio = new Audio();
+            audio.loop = true;
+            audio.volume = 0.3; // 设置较低的音量避免打扰
+            audio.preload = "auto"; // 预加载音频
+            
+            // 设置音频事件监听器
+            audio.addEventListener('canplaythrough', function() {
+                console.log("音频已加载完成，可以播放");
+            });
+            
+            audio.addEventListener('error', function(e) {
+                console.error("音频加载错误:", e);
+                // 如果主链接失败，尝试备用链接
+                const currentMusic = musicList[currentMusicIndex];
+                if (audio.src !== currentMusic.backupUrl && currentMusic.backupUrl) {
+                    console.log("尝试使用备用音乐链接...");
+                    audio.src = currentMusic.backupUrl;
+                    audio.load();
+                    
+                    // 尝试播放
+                    if (userInteracted) {
+                        audio.play().catch(e => console.log("备用链接播放失败:", e));
+                    }
+                } else {
+                    console.error("所有音乐链接都失败");
+                    document.getElementById('currentMusic').textContent = "音乐加载失败";
+                    // 尝试下一首音乐
+                    setTimeout(() => {
+                        playNextMusic();
+                    }, 2000);
+                }
+            });
+            
+            audio.addEventListener('play', function() {
+                isPlaying = true;
+                updateMusicButton(true);
+                updateMusicSelector();
+            });
+            
+            audio.addEventListener('pause', function() {
+                isPlaying = false;
+                updateMusicButton(false);
+            });
+            
+            audio.addEventListener('ended', function() {
+                // 播放结束后自动播放下一首
+                playNextMusic();
+            });
+            
+            // 加载第一首音乐
+            loadCurrentMusic();
+            
+            // 初始化音乐选择器
+            initializeMusicSelector();
+        }
+        
+        // 初始化音乐选择器
+        function initializeMusicSelector() {
+            const musicListElement = document.getElementById('musicList');
+            musicListElement.innerHTML = '';
+            
+            musicList.forEach((music, index) => {
+                const musicItem = document.createElement('div');
+                musicItem.className = 'music-item';
+                if (index === currentMusicIndex) {
+                    musicItem.classList.add('active');
+                }
+                
+                musicItem.innerHTML = `
+                    <i class="fas fa-music"></i>
+                    <span>${music.name}</span>
+                `;
+                
+                musicItem.addEventListener('click', () => {
+                    playMusicByIndex(index);
+                });
+                
+                musicListElement.appendChild(musicItem);
+            });
+        }
+        
+        // 更新音乐选择器
+        function updateMusicSelector() {
+            const musicItems = document.querySelectorAll('.music-item');
+            musicItems.forEach((item, index) => {
+                if (index === currentMusicIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        
+        // 加载当前选择的音乐
+        function loadCurrentMusic() {
+            if (!audio) return;
+            
+            const currentMusic = musicList[currentMusicIndex];
+            document.getElementById('currentMusic').textContent = currentMusic.name;
+            
+            // 设置音频源
+            audio.src = currentMusic.url;
+            
+            // 尝试加载和播放
+            audio.load();
+            
+            // 如果用户已经交互过，尝试播放
+            if (userInteracted) {
+                attemptAutoplay();
+            }
+        }
+        
+        // 播放指定索引的音乐
+        function playMusicByIndex(index) {
+            if (index < 0 || index >= musicList.length) return;
+            
+            currentMusicIndex = index;
+            loadCurrentMusic();
+            
+            // 如果音乐已暂停，则播放
+            if (!isPlaying && userInteracted) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updateMusicButton(true);
+                }).catch(e => {
+                    console.error("播放失败:", e);
+                });
+            }
+            
+            // 关闭音乐选择器
+            document.getElementById('musicSelector').style.display = 'none';
+        }
+        
+        // 播放下一首音乐
+        function playNextMusic() {
+            currentMusicIndex = (currentMusicIndex + 1) % musicList.length;
+            loadCurrentMusic();
+            
+            if (isPlaying && userInteracted) {
+                audio.play().catch(e => console.error("播放下一首失败:", e));
+            }
+        }
+        
+        // 尝试自动播放
+        function attemptAutoplay() {
+            if (!audio) return;
+            
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("音乐自动播放成功");
+                    isPlaying = true;
+                    updateMusicButton(true);
+                }).catch(error => {
+                    console.log("自动播放被阻止，等待用户交互:", error);
+                    isPlaying = false;
+                    updateMusicButton(false);
+                });
+            }
+        }
+        
+        // 更新音乐按钮状态
+        function updateMusicButton(playing) {
+            const musicControl = document.getElementById('musicControl');
+            if (playing) {
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                musicControl.style.background = 'rgba(74, 111, 165, 0.1)';
+                musicControl.style.color = '#4a6fa5';
+            } else {
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+                musicControl.style.background = 'rgba(255, 255, 255, 0.9)';
+                musicControl.style.color = '#4a6fa5';
+            }
+        }
+        
+        // 音乐控制按钮事件
+        document.getElementById('musicControl').addEventListener('click', function(e) {
+            if (!audio) return;
+            
+            // 长按显示音乐选择器
+            if (e.detail > 1) {
+                toggleMusicSelector();
+                return;
+            }
+            
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                // 标记用户已交互
+                userInteracted = true;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updateMusicButton(true);
+                }).catch(e => {
+                    console.error("播放失败:", e);
+                    // 如果播放失败，尝试切换音乐
+                    playNextMusic();
+                });
+            }
+        });
+        
+        // 切换音乐选择器显示
+        function toggleMusicSelector() {
+            const selector = document.getElementById('musicSelector');
+            if (selector.style.display === 'block') {
+                selector.style.display = 'none';
+            } else {
+                selector.style.display = 'block';
+            }
+        }
+        
+        // 点击页面其他地方关闭音乐选择器
+        document.addEventListener('click', function(e) {
+            const selector = document.getElementById('musicSelector');
+            const musicControl = document.getElementById('musicControl');
+            
+            if (!selector.contains(e.target) && !musicControl.contains(e.target)) {
+                selector.style.display = 'none';
+            }
+        });
+        
+        // 页面加载完成后初始化音频
+        window.addEventListener('load', function() {
+            console.log("页面加载完成，初始化音频系统...");
+            initializeAudio();
+            
+            // 设置全局点击事件来激活音频
+            document.addEventListener('click', function activateAudio() {
+                if (!userInteracted) {
+                    userInteracted = true;
+                    console.log("用户交互，激活音频系统");
+                    
+                    // 尝试播放当前音乐
+                    if (audio && !isPlaying) {
+                        audio.play().then(() => {
+                            isPlaying = true;
+                            updateMusicButton(true);
+                        }).catch(e => {
+                            console.error("用户交互后播放失败:", e);
+                        });
+                    }
+                    
+                    // 移除监听器，避免重复触发
+                    document.removeEventListener('click', activateAudio);
+                }
+            }, { once: true });
+        });
+        
+        // 密码验证
+        document.getElementById('verifyBtn').addEventListener('click', verifyPassword);
+        document.getElementById('passwordInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                verifyPassword();
+            }
+        });
+        
+        function verifyPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const downloadSection = document.getElementById('downloadSection');
+            
+            const inputPassword = passwordInput.value.trim();
+            
+            // 清空消息
+            errorMessage.textContent = '';
+            successMessage.textContent = '';
+            
+            if (!inputPassword) {
+                errorMessage.textContent = '请输入密码';
+                return;
+            }
+            
+            // 检查密码是否有效
+            if (validPasswords.includes(inputPassword)) {
+                successMessage.textContent = '密码正确！正在解锁下载...';
+                passwordInput.value = '';
+                
+                // 显示下载区域
+                setTimeout(() => {
+                    downloadSection.style.display = 'block';
+                    downloadSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // 设置下载链接
+                    const downloadLink = document.getElementById('downloadLink');
+                    downloadLink.href = 'https://42-56-79-196.pd1.cjjd19.com/1135-user-share-free-download-cdn.123295.com/123-49/8c8900fe/1828808825-0/8c8900fefbb3da75f984fa1c8d086c31/c-m106?v=5&t=1767454340&r=F310T7&bzc=2&bzs=313832383830383832353a31303130393032373a31323639363a313832383830383832353a3130&ur=ligmpgngvlv&urn=0&s=17674543403d1a8e543b24eb8b6486ca59509b5b53&bzp=0&bi=4220186464&filename=keybox.xml&x-mf-biz-cid=ff6f1b28-c392-4e8b-9932-426de5ee31bb-584000&auto_redirect=0&ndcp=1&cache_type=1';
+                    
+                    // 5秒后自动点击下载（可选）
+                    setTimeout(() => {
+                        downloadLink.click();
+                    }, 5000);
+                }, 1000);
+            } else {
+                errorMessage.textContent = '密码错误，请重新输入';
+                passwordInput.value = '';
+                passwordInput.focus();
+                
+                // 震动效果
+                passwordInput.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    passwordInput.style.animation = '';
+                }, 500);
+            }
+        }
+        
+        // 添加震动动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 点击下载链接时添加确认
+        document.getElementById('downloadLink').addEventListener('click', function(e) {
+            if (!this.href || this.href === '#') {
+                e.preventDefault();
+                alert('请先验证密码才能下载');
+                document.getElementById('passwordInput').focus();
+            }
+        });
+    </script>
+</body>
+</html>
